@@ -9,9 +9,20 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ url, text }) => {
+  const [loaded, setLoaded] = React.useState(false);
+  const ref = React.useRef<HTMLDivElement>(null);
+
+  // https://stackoverflow.com/questions/59787642/nextjs-images-loaded-from-cache-dont-trigger-the-onload-event
+  React.useEffect(() => {
+    if ((ref.current?.firstChild?.firstChild as HTMLImageElement | undefined)?.complete) {
+      setLoaded(true);
+    }
+  }, []);
+
   return (
     <section className={styles.hero}>
-      <div className={styles.imageContainer}>
+      <div className={styles.imageContainer} ref={ref}>
+        {!loaded && <div className={styles.tempImageContainer} />}
         <Image
           src={url}
           className={styles.image}
@@ -20,6 +31,7 @@ const Hero: React.FC<HeroProps> = ({ url, text }) => {
           priority={true}
           draggable="false"
           quality={80}
+          onLoad={() => setLoaded(true)}
         />
       </div>
       <Container>
