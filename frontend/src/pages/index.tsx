@@ -9,6 +9,7 @@ import WholePageBox from "components/WholePageBox";
 import Hero from "components/Hero";
 import UpcomingEvents from "components/UpcomingEvents";
 import SponsorsList from "components/SponsorsList";
+import HomeHero from "components/HomeHero";
 
 // Styling
 import styles from "src/styles/home.module.scss";
@@ -25,7 +26,8 @@ const Home: React.FC = () => {
         <title>MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      <Hero url="/images/hero/mathsoc_skating.png" text="Welcome to UNSW Mathematics Society" />
+      {/*<Hero url="/images/hero/mathsoc_skating.png" text="Welcome to UNSW Mathematics Society" />*/}
+      <HomeHero url="/images/hero/mathsoc_skating.png" />
       <PageBody>
         <div className={styles.intro}>
           <WholePageBox>

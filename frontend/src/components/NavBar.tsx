@@ -42,7 +42,7 @@ const NavBar: React.FC = () => {
             <Link href="/">
               <a>
                 <img
-                  src="/images/mathsocLogoLong.svg"
+                  src="/images/logoSmall.svg"
                   className={styles.logo}
                   alt="MathSoc Logo"
                   aria-label="logo"
